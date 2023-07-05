@@ -1,4 +1,4 @@
 class Number < ApplicationRecord
-  belongs_to :sports
+  belongs_to :sport
   has_many :trainings
 end

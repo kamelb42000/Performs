@@ -1,3 +1,3 @@
 class Training < ApplicationRecord
-  belongs_to :numbers
+  belongs_to :number
 end

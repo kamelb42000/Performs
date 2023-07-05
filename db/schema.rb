@@ -27,10 +27,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_081136) do
     t.string "name"
     t.string "players"
     t.string "teams"
-    t.bigint "users_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_sports_on_users_id"
+    t.index ["user_id"], name: "index_sports_on_user_id"
   end
 
   create_table "trainings", force: :cascade do |t|
@@ -55,6 +55,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_081136) do
   end
 
   add_foreign_key "numbers", "sports", column: "sports_id"
-  add_foreign_key "sports", "users", column: "users_id"
+  add_foreign_key "sports", "users"
   add_foreign_key "trainings", "numbers", column: "numbers_id"
 end
