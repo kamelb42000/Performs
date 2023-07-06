@@ -2,12 +2,16 @@
   <div class="titre-index-realties my-3">
     <h2>Bienvenue, <%= "#{current_user.email}" %></h2>
   </div>
-<div class="container_indexsports">
-  <ul>
-    <% @sports.each do |sport| %>
-      <li><%= sport.name %></li>
-      <li><%= sport.teams %></li>
-      <li><%= sport.players %></li>
-    <% end %>
-  </ul>
+  <div class="container_indexsports">
+    <ul>
+      <% @sports.each do |sport| %>
+        <li><%= sport.name %></li>
+        <li><%= sport.teams %></li>
+        <li><%= sport.players %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="bouton_ajout">
+    <%= link_to 'Nouvel entrainement', new_sport_path %>
+  </div>
 </div>

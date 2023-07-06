@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-header">
+    <div class="text-header">Ajouter un sport</div>
+  </div>
+  <div class="card-body">
+    <%= simple_form_for(@sport, url: sports_path, method: :post) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :teams %>
+      <%= f.input :players %>
+      <%= f.button :submit, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
