@@ -6,7 +6,8 @@ Rails.application.routes.draw do
       resources :number
       resources :trainings
     end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+    resources :sports, only: [:destroy]
+    # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
   # root "articles#index"
