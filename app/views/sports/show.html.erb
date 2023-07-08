@@ -2,7 +2,7 @@
   <h1>Détails du sport</h1>
   <p>Nom : <%= @sport.name %></p>
   <p>Équipes : <%= @sport.teams %></p>
-  <p>Joueurs : <%= @sport.players %></p>
+  <p>Joueurs : <%= @sport.players %></p> <%= link_to "Stat", sport_numbers_path(@sport) %>
 
 </div>
-  <%= link_to "Supprimer", sports_path(@sport), method: :delete, data: { turbo_confirm: "Êtes-vous sûr de vouloir supprimer ce document ?" } %>
+<%= link_to "Supprimer", sport_path(@sport), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer ce document ?" } %>
