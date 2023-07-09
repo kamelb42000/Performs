@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :sports do
     resources :numbers  # Utilisation du pluriel pour la ressource
     resources :trainings
+    resources :players
   end
   resources :sports, only: [:destroy]
 

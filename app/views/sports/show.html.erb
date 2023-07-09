@@ -2,7 +2,14 @@
   <h1>Détails du sport</h1>
   <p>Nom : <%= @sport.name %></p>
   <p>Équipes : <%= @sport.teams %></p>
-  <p>Joueurs : <%= @sport.players %></p> <%= link_to "Stat", sport_numbers_path(@sport) %>
-
+  <p>Joueurs :</p>
+  <% @sport.players.split(',').each do |player| %>
+    <div class="card">
+      <p><%= player.strip %></p>
+      <%= link_to "Stat", sport_numbers_path(@sport) %>
+      <%= link_to "Joueurs", sport_players_path(@sport) %>
+      <% end %>
+  </div>
 </div>
+
 <%= link_to "Supprimer", sport_path(@sport), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer ce document ?" } %>
