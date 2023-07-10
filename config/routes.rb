@@ -3,16 +3,14 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :sports do
-    resources :numbers  # Utilisation du pluriel pour la ressource
+    resources :numbers
     resources :trainings
     resources :players
   end
+
   resources :sports, only: [:destroy]
-
-  # Ajouter la route pour l'action index de NumbersController
   resources :numbers, only: [:index]
-    # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :players, only: [:index, :new, :create]
 
-  # Defines the root path route ("/")
-  # root "articles#index"
 end
+

@@ -1,0 +1,8 @@
+<h1>Ajouter un nouveau Joueur</h1>
+<%= simple_form_for [@sport, @player], url: sport_players_path(@sport) do |form| %>
+  <%= form.input :name %>
+  <%= form.input :size %>
+  <%= form.input :height %>
+  <%= form.input :position %>
+  <%= form.button :submit, "Ajouter un nouveau joueur" %>
+<% end %>

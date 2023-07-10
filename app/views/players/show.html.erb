@@ -1,4 +1,8 @@
 <h1>Details joueurs</h1>
+  <p>Nom: <%= @player.name %></p>
   <p>Taille : <%= @player.size %></p>
   <p>Poids : <%= @player.height %></p>
   <p>Position : <%= @player.position %></p>
+  <%= link_to "Stat joueur", sport_numbers_path(@sport) %>
+  <br>
+  <%= link_to "Mettre à jour le joueur", edit_sport_player_path %>

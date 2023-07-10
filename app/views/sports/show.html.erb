@@ -3,13 +3,19 @@
   <p>Nom : <%= @sport.name %></p>
   <p>Équipes : <%= @sport.teams %></p>
   <p>Joueurs :</p>
-  <% @sport.players.split(',').each do |player| %>
-    <div class="card">
-      <p><%= player.strip %></p>
-      <%= link_to "Stat", sport_numbers_path(@sport) %>
-      <%= link_to "Joueurs", sport_players_path(@sport) %>
-      <% end %>
+<% @sport.players.each do |player| %>
+  <div class="card">
+    <p><%= player.name.strip %></p>
+    <%= link_to "Joueurs", sport_player_path(@sport, player) %>
+    <%= button_to "Retirer", sport_player_path(@sport, player), method: :delete, data: { turbo_confirm: "Êtes-vous sûr de vouloir retirer ce joueur ?" }, class: "btn btn-danger" %>
+
+
+  </div>
+<% end %>
   </div>
 </div>
+<br><br>
+<%= link_to "Ajouter un nouveau joueur", new_sport_player_path(@sport) %>
 
+<br><br>
 <%= link_to "Supprimer", sport_path(@sport), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer ce document ?" } %>

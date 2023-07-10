@@ -1,0 +1,8 @@
+<h1>Mettre à jour le Joueur</h1>
+<%= simple_form_for [@sport, @player], url: sport_player_path(@sport, @player) do |form| %>
+  <%= form.input :name %>
+  <%= form.input :size %>
+  <%= form.input :height %>
+  <%= form.input :position %>
+  <%= form.button :submit, "Mettre à jour" %>
+<% end %>

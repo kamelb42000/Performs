@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_09_082606) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_10_083656) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,11 +29,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_09_082606) do
     t.string "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.bigint "sport_id", null: false
+    t.index ["sport_id"], name: "index_players_on_sport_id"
+    t.index ["user_id"], name: "index_players_on_user_id"
   end
 
   create_table "sports", force: :cascade do |t|
     t.string "name"
-    t.string "players"
     t.string "teams"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -63,6 +67,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_09_082606) do
   end
 
   add_foreign_key "numbers", "sports", column: "sports_id"
+  add_foreign_key "players", "sports"
+  add_foreign_key "players", "users"
   add_foreign_key "sports", "users"
   add_foreign_key "trainings", "numbers", column: "numbers_id"
 end
