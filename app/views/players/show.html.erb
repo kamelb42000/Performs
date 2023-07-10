@@ -3,6 +3,6 @@
   <p>Taille : <%= @player.size %></p>
   <p>Poids : <%= @player.height %></p>
   <p>Position : <%= @player.position %></p>
-  <%= link_to "Stat joueur", sport_numbers_path(@sport) %>
+  <%= link_to "Voir les statistiques", url_for([@sport, @player, :numbers]) %>
   <br>
   <%= link_to "Mettre à jour le joueur", edit_sport_player_path %>

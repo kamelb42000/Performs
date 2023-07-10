@@ -20,8 +20,7 @@ class PlayersController < ApplicationController
 
   def new
     @sport = Sport.find(params[:sport_id])
-  @player = Player.new
-
+    @player = Player.new
   end
 
   def create
