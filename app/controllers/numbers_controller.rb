@@ -1,7 +1,7 @@
 class NumbersController < ApplicationController
   def index
     @sport = Sport.find(params[:sport_id])
-    @player = Player.find(params[:player_id])
+    @player = @sport.players.find(params[:player_id])
     @numbers = @player.numbers
   end
 
@@ -15,12 +15,12 @@ class NumbersController < ApplicationController
     @sport = Sport.find(params[:sport_id])
     @player = Player.find(params[:player_id])
     @number = @player.numbers.build(number_params)
-    @player.user = current_user
+    @number.sports << @sport
 
     if @number.save
       redirect_to sport_player_numbers_path(@sport, @player), flash: { success: "Les stats ont été ajoutées avec succès" }
     else
-      puts @number.errors.full_messages # Affiche les erreurs dans la console
+      puts @number.errors.full_messages 
       render :new, status: :unprocessable_entity
     end
   end

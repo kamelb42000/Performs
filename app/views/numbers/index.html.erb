@@ -1,10 +1,15 @@
 <h1>Stats du joueur <%= @player.name %></h1>
 <div class="container_index-number">
   <ul>
-    <% @player.numbers.each do |number| %>
-      <li><%= number.score %></li>
-      <li><%= number.duration %></li>
+    <% if @player.numbers.any? %>
+      <% @player.numbers.each do |number| %>
+        <li><%= number.score %></li>
+        <li><%= number.duration %></li>
+      <% end %>
+    <% else %>
+      <li>Aucune statistique disponible</li>
     <% end %>
   </ul>
 </div>
+
 <%= link_to "Ajouter des stats", new_sport_player_number_path(@sport, @player) %>

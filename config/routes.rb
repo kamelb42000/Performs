@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   end
 
   resources :sports, only: [:destroy]
-  resources :numbers, only: [:index, :create], path: 'sports/:sport_id/players/:player_id/numbers'
+  resources :numbers
   resources :players, only: [:index, :new, :create]
 end
