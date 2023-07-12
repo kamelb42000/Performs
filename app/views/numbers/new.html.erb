@@ -1,6 +1,8 @@
-<h1>Ajouter les stat du joueur</h1>
+<h1>Ajouter les stats du joueur</h1>
 <%= simple_form_for [@sport, @player, @number], url: sport_player_numbers_path(@sport, @player) do |form| %>
   <%= form.input :duration %>
   <%= form.input :score %>
+  <%= form.association :sport, collection: Sport.all, label_method: :name, value_method: :id, include_blank: true %>
+  <%= hidden_field_tag ​​:player_id, @player.id %>
   <%= form.button :submit, "Ajouter les stats" %>
 <% end %>

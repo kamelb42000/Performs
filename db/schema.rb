@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_10_112356) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_12_075254) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,8 +21,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_10_112356) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "player_id", null: false
+    t.bigint "sport_id", 
     t.index ["player_id"], name: "index_numbers_on_player_id"
+    t.index ["sport_id"], name: "index_numbers_on_sport_id"
     t.index ["sports_id"], name: "index_numbers_on_sports_id"
+  end
+
+  create_table "numbers_sports", id: false, force: :cascade do |t|
+    t.bigint "number_id", null: false
+    t.bigint "sport_id", null: false
+    t.index ["number_id", "sport_id"], name: "index_numbers_sports_on_number_id_and_sport_id"
+    t.index ["sport_id", "number_id"], name: "index_numbers_sports_on_sport_id_and_number_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -69,6 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_10_112356) do
   end
 
   add_foreign_key "numbers", "players"
+  add_foreign_key "numbers", "sports"
   add_foreign_key "numbers", "sports", column: "sports_id"
   add_foreign_key "players", "sports"
   add_foreign_key "players", "users"
