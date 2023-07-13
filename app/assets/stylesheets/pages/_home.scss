@@ -1,1 +1,15 @@
 // Specific CSS for your home-page
+body{
+  background-image: url(basket.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.titre_page{
+    background-color: #8d747405;
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(155px);
+    color: #fff;
+    margin-top: 25%;
+    margin-left: 37%;
+  }
