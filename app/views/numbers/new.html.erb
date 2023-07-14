@@ -3,6 +3,6 @@
   <%= form.input :duration %>
   <%= form.input :score %>
   <%= form.association :sport, collection: Sport.all, label_method: :name, value_method: :id, include_blank: true %>
-  <%= hidden_field_tag ​​:player_id, @player.id %>
+  <%= hidden_field_tag :player_id, @player.id %>
   <%= form.button :submit, "Ajouter les stats" %>
 <% end %>

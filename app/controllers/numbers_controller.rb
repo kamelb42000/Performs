@@ -15,7 +15,8 @@ class NumbersController < ApplicationController
     @sport = Sport.find(params[:sport_id])
     @player = Player.find(params[:player_id])
     @number = @player.numbers.build(number_params)
-    @number.player_id = current_player.id. @player.user_id
+    @number.player_id = current_user.id
+    @number.user_id = @player.user_id
     @number.sport_id = @sport.id
 
     if @number.save
